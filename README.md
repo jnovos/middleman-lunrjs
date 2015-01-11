@@ -18,10 +18,14 @@ Or install it yourself as:
 
     $ gem install middleman-lunrjs
 
+You can install the gem in local with shell script 
+
+    $ ./make_gem.sh
+
 ## Usage
 Put in Gemfile the Middleman extension lunrjs
 
-  gem "middleman-lunrjs"
+    $ gem "middleman-lunrjs"
 
 and config.rb 
 
