@@ -19,6 +19,11 @@ Or install it yourself as:
     $ gem install middleman-lunrjs
 
 ## Usage
+Put in Gemfile the Middleman extension lunrjs
+
+  gem "middleman-lunrjs"
+
+and config.rb 
 
 ```ruby
   configure :build do
