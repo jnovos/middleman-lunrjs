@@ -1,6 +1,10 @@
 module Middleman
   module Indexer
     class Lunrjs < Middleman::Extension
+      # Options
+      option :file_path, nil, 'The path where it saves the json file'
+      option :index_tags, [], 'are tags in yaml or data file for search'
+
       def initialize(app, options_hash={}, &block)
         super
         return unless app.environment == :build
