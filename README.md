@@ -1,6 +1,6 @@
 # Middleman::Lunrjs
 
-TODO: Write a gem description
+This is a plugin the lunr-js for middleman
 
 ## Installation
 
@@ -12,7 +12,7 @@ gem 'middleman-lunrjs'
 
 And then execute:
 
-    $ bundle
+    $ bundle 
 
 Or install it yourself as:
 
@@ -20,7 +20,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+  configure :build do
+   activate :sync do |config|
+   end
+ end  
+```
 
 ## Contributing
 
@@ -29,3 +34,4 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
