@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ```ruby
   configure :build do
-   activate :sync do |config|
+   activate :lunrjs do |config|
    end
  end  
 ```
