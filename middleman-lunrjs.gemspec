@@ -7,8 +7,8 @@ Gem::Specification.new do |spec|
   spec.version = Middleman::Lunrjs::VERSION
   spec.authors = ["Jorge Novo"]
   spec.email = ["jnovos@gmail.com"]
-  spec.summary = %q{TODO: Write a short summary. Required.}
-  spec.description = %q{TODO: Write a longer description. Optional.}
+  spec.summary = %q{This is a plugin of middleman for lunrjs.}
+  spec.description = %q{Write a longer description. Optional.}
   spec.homepage = ""
   spec.license = "MIT"
 
