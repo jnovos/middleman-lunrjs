@@ -29,12 +29,11 @@ Put in Gemfile the Middleman extension lunrjs
 
 and config.rb 
 
-```ruby
-  configure :build do
-   activate :lunrjs do |config|
-   end
- end  
-```
+    configure :build do
+        activate :lunrjs do |config|
+         config.index_tags = %w(title ) #Hash with tags of data
+        end
+    end
 
 ## Contributing
 
