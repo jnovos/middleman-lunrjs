@@ -4,6 +4,7 @@ module Middleman
       # Options
       option :file_path, nil, 'The path where it saves the json file'
       option :index_tags, [], 'are tags in yaml or data file for search'
+      option :lunr_config, [], 'structure for '
 
       def initialize(app, options_hash={}, &block)
         puts ('Init lunrjs ')
@@ -30,7 +31,35 @@ module Middleman
             end
           end
           puts 'start index lunr'
-
+          lunr_config = {
+              :ref => 'id',
+              :fields => {
+                  :title => 10,
+                  :path => 20
+              },
+          }
+          folder_source = app.root_path + app.inst.source.to_s
+          folder_lunar_js = folder_source.to_s + '/' + app.inst.js_dir.to_s + '/lunr.js/lunr.js'
+          @lunr_path = File.exist?(folder_lunar_js) ? folder_lunar_js : File.join(folder_source, File.basename(folder_lunar_js))
+          raise "Could not find #{@lunr_path}" if !File.exist?(@lunr_path)
+          cxt = V8::Context.new
+          cxt.load(@lunr_path)
+          #Obtengo el objecto lunr
+          val = cxt.eval('lunr')
+          lunr_conf = proc do |this|
+            this.ref('id')
+            lunr_config[:fields].each_pair do |name, boost|
+              this.field(name, {:boost => boost})
+            end
+          end
+          puts val.version
+          #Obtengo el objecto IDX
+          idx = val.call(lunr_conf)
+          docs.each do |doc|
+            idx.add(doc)
+          end
+          total = idx.miJson(idx)
+          File.open(file_path, 'w') { |f| f.write(total) }
         end
       end
     end
