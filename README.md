@@ -22,6 +22,10 @@ You can install the gem in local with shell script
 
     $ ./make_gem.sh
 
+You have to install lunr.js into the javascript folder of middlemanapp project
+
+    $ bower install lunr.js
+
 ## Usage
 Put in Gemfile the Middleman extension lunrjs
 
@@ -31,7 +35,9 @@ and config.rb
 
     configure :build do
         activate :lunrjs do |config|
-         config.index_tags = %w(title ) #Hash with tags of data
+         config.index_tags = %w(title ) # Optional Hash with tags of data
+         config.file_path # Optional folder where save index json file. By default "source/json/search.json".
+         config.lunr_config # Optional Hash with config of lunrjs. See http://lunrjs.com/docs/#lunr
         end
     end
 
