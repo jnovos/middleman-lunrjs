@@ -61,7 +61,7 @@ module Middleman
             folder_lunar_js = folder_root.to_s + '/' + data_hash['directory'].to_s + '/lunr.js/lunr.js'
           else
             #path of lunr.js folder
-            folder_lunar_js = folder_root.to_s + '/bower_components/lunr.js/lunr.js'
+            folder_lunar_js = folder_root.to_s + '/source/javascripts/bower_components/lunr.js/lunr.js'
           end
           if !File.exist?(folder_lunar_js)
             raise "Could not find lunr.js into #{folder_lunar_js}"
