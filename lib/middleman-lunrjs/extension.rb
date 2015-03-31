@@ -10,6 +10,7 @@ module Middleman
       option :index_tags, [], 'are tags in yaml or data file for search'
       option :lunr_config_id, {:id => 'id'}, 'structure of index'
       option :lunr_config_boost, {:fields => {:title => 10, :path => 20}}, 'structure for boost'
+      option :lunr_javascript_dir, '/bower_components/lunr.js/lunr.js', 'Directory by default lunar.js'
 
       def initialize(app, options_hash={}, &block)
         puts ('Init lunrjs ')
@@ -30,7 +31,9 @@ module Middleman
           file_path = opts[:file_path]
           lunr_config_id = opts[:lunr_config_id]
           lunr_config_boost = opts[:lunr_config_boost]
+          lunr_js_directory = opts[:lunr_javascript_dir]
           lunr_config = lunr_config_boost.merge(lunr_config_id)
+
           sitemap = opts[:sitemap]
           folder_root = app.root_path
           folder_source = app.root_path + app.inst.source.to_s
@@ -61,7 +64,7 @@ module Middleman
             folder_lunar_js = folder_root.to_s + '/' + data_hash['directory'].to_s + '/lunr.js/lunr.js'
           else
             #path of lunr.js folder
-            folder_lunar_js = folder_root.to_s + '/source/javascripts/bower_components/lunr.js/lunr.js'
+            folder_lunar_js = folder_root.to_s + lunr_js_directory
           end
           if !File.exist?(folder_lunar_js)
             raise "Could not find lunr.js into #{folder_lunar_js}"

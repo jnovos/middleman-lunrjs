@@ -38,6 +38,7 @@ and config.rb
          config.index_tags = %w(title ) # Optional Hash with tags of metadata
          config.file_path # Optional folder where save index json file. By default "source/json/search.json".
          config.lunr_config # Optional Hash with config of lunrjs. See http://lunrjs.com/docs/#lunr
+         config.lunr_javascript_dir = /source/javascripts/bower_components/lunr.js/lunr.js # Optional directory + file where the lunar.js is. 
         end
     end
 
