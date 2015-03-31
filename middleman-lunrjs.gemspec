@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Jorge Novo"]
   spec.email = ["jnovos@gmail.com"]
   spec.summary = %q{This is a plugin of middleman for lunrjs.}
-  spec.description = %q{Write a longer description. Optional.}
-  spec.homepage = ""
+  spec.description = %q{This is a plugin of middleman for lunrjs.}
+  spec.homepage = "https://github.com/jnovos/middleman-lunrjs"
   spec.license = "MIT"
 
   spec.files = `git ls-files -z`.split("\x0")
